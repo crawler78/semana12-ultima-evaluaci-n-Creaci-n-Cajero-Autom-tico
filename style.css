@@ -1,0 +1,228 @@
+/* ====== RESET / BASE ====== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root{
+  --rojo:#EC111A;        /* Rojo Scotiabank */
+  --rojo-osc:#c20d14;
+  --gris-txt:#595959;
+  --gris-cl:#f2f2f2;
+  --gris-bord:#e3e3e3;
+  --sombra:0 10px 30px rgba(0,0,0,.08);
+}
+html,body{ height:100%; }
+body{
+  font-family:'Segoe UI', Arial, Helvetica, sans-serif;
+  color:var(--gris-txt);
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ====== ENCABEZADO ====== */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 36px;
+  background:#fff;
+  border-bottom:1px solid var(--gris-bord);
+  position:relative; z-index:5;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand-name{ font-size:22px; font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
+.topbar-right{ display:flex; align-items:center; gap:8px; color:var(--gris-txt); font-size:15px; }
+
+/* ====== ESCENARIO (fondo dividido) ====== */
+.stage{
+  position:relative;
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 24px;
+  overflow:hidden;
+}
+.stage-bg{
+  position:absolute; inset:0; z-index:0;
+  background:
+    linear-gradient(115deg, #fff 0%, #fff 48%, rgba(236,17,26,.10) 60%, rgba(236,17,26,.55) 100%);
+}
+
+/* ====== CONTENIDO ====== */
+.content{
+  position:relative; z-index:2;
+  width:100%; max-width:1080px;
+  display:flex; align-items:center; justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+.hidden{ display:none !important; }
+
+/* ====== TARJETA LOGIN ====== */
+.login-card{
+  background:#fff;
+  width:400px; max-width:100%;
+  border-radius:16px;
+  box-shadow:var(--sombra);
+  padding:34px 32px 24px;
+}
+.card-title{ font-size:26px; font-weight:800; color:#1a1a1a; margin-bottom:4px; }
+.card-subtitle{ font-size:14.5px; color:var(--gris-txt); margin-bottom:22px; }
+
+.field{ margin-bottom:16px; }
+.field-label{
+  display:flex; align-items:center; gap:8px;
+  font-size:14px; font-weight:600; color:#333; margin-bottom:8px;
+}
+.input{
+  width:100%;
+  border:1px solid var(--gris-bord);
+  background:var(--gris-cl);
+  border-radius:10px;
+  padding:13px 14px;
+  font-size:15px; color:#222;
+  outline:none;
+  transition:border .18s, background .18s;
+}
+.input::placeholder{ color:#9a9a9a; }
+.input:focus{ border-color:var(--rojo); background:#fff; }
+.select-wrap{ position:relative; }
+.select{ appearance:none; cursor:pointer; padding-right:38px; }
+.select-wrap::after{
+  content:""; position:absolute; right:16px; top:50%;
+  width:9px; height:9px; margin-top:-6px;
+  border-right:2px solid #8a8a8a; border-bottom:2px solid #8a8a8a;
+  transform:rotate(45deg); pointer-events:none;
+}
+
+.field-divider{
+  display:flex; align-items:center; text-align:center;
+  color:#b5b5b5; font-size:13px; margin:4px 0 16px;
+}
+.field-divider::before,.field-divider::after{
+  content:""; flex:1; height:1px; background:var(--gris-bord);
+}
+.field-divider span{ padding:0 12px; }
+
+.btn-primary{
+  width:100%;
+  background:var(--rojo);
+  color:#fff; border:none;
+  border-radius:10px;
+  padding:14px; font-size:16px; font-weight:700;
+  cursor:pointer; transition:background .18s, transform .05s;
+}
+.btn-primary:hover{ background:var(--rojo-osc); }
+.btn-primary:active{ transform:translateY(1px); }
+
+.btn-ghost{
+  width:100%;
+  background:transparent;
+  color:var(--gris-txt);
+  border:1px solid var(--gris-bord);
+  border-radius:10px;
+  padding:12px; font-size:15px; font-weight:600;
+  cursor:pointer; margin-top:10px; transition:background .18s;
+}
+.btn-ghost:hover{ background:var(--gris-cl); }
+.btn-ghost.small{ width:auto; padding:8px 16px; margin:0; font-size:14px; }
+
+.login-msg{ min-height:20px; font-size:13.5px; margin-top:12px; text-align:center; }
+.login-msg.error{ color:var(--rojo); font-weight:600; }
+.login-msg.ok{ color:#1a8a3b; font-weight:600; }
+
+.card-foot{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  border-top:1px solid var(--gris-bord);
+  margin-top:22px; padding-top:16px;
+  color:var(--rojo); font-size:13.5px; font-weight:600;
+}
+
+/* ====== PROMO / LAPTOP ====== */
+.promo{ width:320px; max-width:100%; text-align:center; }
+.laptop{ margin:0 auto 26px; width:230px; }
+.laptop-screen{
+  background:linear-gradient(135deg,var(--rojo),var(--rojo-osc));
+  height:150px; border-radius:12px 12px 4px 4px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:inset 0 0 0 8px #d9d9d9, var(--sombra);
+}
+.laptop-base{
+  height:14px; width:270px; margin:0 auto;
+  background:linear-gradient(#cfcfcf,#b5b5b5);
+  border-radius:0 0 12px 12px;
+  transform:translateX(-20px);
+}
+.promo-title{ font-size:24px; font-weight:800; color:#1a1a1a; margin-bottom:8px; }
+.promo-text{ font-size:15px; color:var(--gris-txt); }
+
+/* ====== TARJETA ATM (operaciones) ====== */
+.atm-card{
+  background:#fff;
+  width:520px; max-width:100%;
+  border-radius:16px;
+  box-shadow:var(--sombra);
+  padding:28px 30px 30px;
+}
+.atm-head{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  border-bottom:1px solid var(--gris-bord);
+  padding-bottom:16px; margin-bottom:20px;
+}
+.atm-hello{ font-size:19px; color:#1a1a1a; }
+.atm-hello strong{ color:var(--rojo); }
+.atm-sub{ font-size:13.5px; color:var(--gris-txt); margin-top:2px; }
+
+.ops-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.op-btn{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  background:#fff; border:1.5px solid var(--gris-bord);
+  border-radius:12px; padding:20px 10px;
+  font-size:14px; font-weight:600; color:#333;
+  cursor:pointer; transition:border .18s, box-shadow .18s, transform .05s;
+}
+.op-btn:hover{ border-color:var(--rojo); box-shadow:var(--sombra); }
+.op-btn:active{ transform:translateY(1px); }
+.op-btn.active{ border-color:var(--rojo); background:#fff5f5; }
+
+.op-panel{ margin-top:22px; border-top:1px dashed var(--gris-bord); padding-top:20px; }
+.op-panel-title{ font-size:17px; color:#1a1a1a; margin-bottom:16px; }
+.op-amount{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.op-amount .currency{ font-size:18px; font-weight:700; color:var(--rojo); }
+.op-actions{ display:flex; gap:12px; }
+.op-actions .btn-primary,.op-actions .btn-ghost{ width:auto; flex:1; margin:0; }
+
+.op-result{
+  margin-top:18px; padding:16px 18px;
+  border-radius:12px; font-size:15px; line-height:1.5;
+  background:var(--gris-cl); border:1px solid var(--gris-bord);
+}
+.op-result.ok{ background:#edfaf0; border-color:#bfe8cb; color:#1a6b34; }
+.op-result.error{ background:#fdeced; border-color:#f6c5c8; color:var(--rojo-osc); }
+.op-result .big{ display:block; font-size:22px; font-weight:800; margin-top:4px; }
+
+/* ====== PIE ====== */
+.bottombar{
+  display:flex; align-items:center; justify-content:center;
+  gap:0; background:var(--gris-cl);
+  border-top:1px solid var(--gris-bord);
+  padding:14px 24px;
+}
+.bottom-item{
+  display:flex; align-items:center; gap:8px;
+  font-size:14px; color:var(--gris-txt);
+  padding:0 28px;
+}
+.bottom-item + .bottom-item{ border-left:1px solid var(--gris-bord); }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width:860px){
+  .content{ gap:36px; }
+  .promo{ order:-1; }
+  .stage-bg{ background:linear-gradient(160deg,#fff 0%,#fff 55%,rgba(236,17,26,.4) 100%); }
+}
+@media (max-width:560px){
+  .topbar{ padding:12px 18px; }
+  .topbar-right span{ display:none; }
+  .bottom-item{ padding:0 14px; font-size:12.5px; }
+  .bottom-item svg{ display:none; }
+  .ops-grid{ grid-template-columns:1fr; }
+}
